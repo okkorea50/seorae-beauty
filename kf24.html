@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KF24 - Korean Foreigners 24</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0F172A',
+                        secondary: '#3B82F6',
+                        surface: '#F8FAFC',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-surface text-primary">
+
+    <!-- Global Navigation Bar -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <div
+                        class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white font-bold text-xl">
+                        K</div>
+                    <span class="font-bold text-2xl tracking-tight text-primary">KF24</span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 text-gray-600 font-medium">
+                    <a href="#" class="hover:text-secondary transition-colors">University Connect</a>
+                    <a href="#" class="hover:text-secondary transition-colors">Visa Consulting</a>
+                    <a href="#" class="hover:text-secondary transition-colors">Settlement Support</a>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="hidden md:block">
+                    <a href="#"
+                        class="bg-secondary text-white px-6 py-3 rounded-2xl font-semibold shadow-lg shadow-blue-500/30 hover:bg-blue-600 transition-all transform hover:-translate-y-0.5">
+                        Get Started
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button class="text-gray-600 hover:text-primary">
+                        <i data-lucide="menu" class="w-8 h-8"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <!-- Placeholder for Campus Image - Dark Overlay -->
+            <div class="absolute inset-0 bg-primary/90"></div>
+            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+                alt="Korean Campus" class="w-full h-full object-cover opacity-20">
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span
+                class="inline-block py-1 px-3 rounded-full bg-blue-500/10 text-secondary text-sm font-semibold mb-6 border border-blue-500/20">
+                Premium Educational Authority
+            </span>
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+                한국 유학의 시작부터 정착까지,<br>
+                <span class="text-secondary">24시간 당신 곁에.</span>
+            </h1>
+            <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
+                20년 교육 전문가의 노하우로 외국인 유학생과 한국 대학을<br class="hidden md:block">
+                가장 안전하고 완벽하게 연결합니다.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#"
+                    class="bg-secondary text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-xl shadow-blue-500/40 hover:bg-blue-600 transition-all hover:-translate-y-1">
+                    무료 상담 신청하기
+                </a>
+                <a href="#"
+                    class="bg-white/10 backdrop-blur-sm text-white border border-white/20 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-white/20 transition-all">
+                    서비스 소개 보기
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proof of Expertise Section -->
+    <section class="py-12 bg-white border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-gray-100">
+                <div>
+                    <div class="text-4xl font-bold text-primary mb-2">1,000+</div>
+                    <div class="text-gray-500 text-sm font-medium uppercase tracking-wide">Students Matched</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold text-primary mb-2">50+</div>
+                    <div class="text-gray-500 text-sm font-medium uppercase tracking-wide">Partner Universities</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold text-primary mb-2">98%</div>
+                    <div class="text-gray-500 text-sm font-medium uppercase tracking-wide">Visa Success Rate</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold text-primary mb-2">24h</div>
+                    <div class="text-gray-500 text-sm font-medium uppercase tracking-wide">Emergency Support</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Grid -->
+    <section class="py-24 bg-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-primary mb-4">Our Core Services</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    유학 준비부터 한국 생활 적응까지, KF24가 제공하는 프리미엄 올인원 서비스입니다.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Card 1 -->
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100 group hover:-translate-y-2 transition-transform duration-300 cursor-pointer">
+                    <div
+                        class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-secondary mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="graduation-cap" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">University Matching</h3>
+                    <p class="text-gray-500 leading-relaxed">
+                        학생의 전공과 성적에 맞는 최적의 한국 대학을 AI 기반으로 매칭해드립니다.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100 group hover:-translate-y-2 transition-transform duration-300 cursor-pointer">
+                    <div
+                        class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-secondary mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="file-check" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Visa Consulting</h3>
+                    <p class="text-gray-500 leading-relaxed">
+                        복잡한 D-2, D-4 비자 발급 절차를 전문 행정사가 1:1로 밀착 지원합니다.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100 group hover:-translate-y-2 transition-transform duration-300 cursor-pointer">
+                    <div
+                        class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-secondary mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="home" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Settlement Support</h3>
+                    <p class="text-gray-500 leading-relaxed">
+                        기숙사/원룸 구하기부터 휴대폰 개통, 은행 계좌 개설까지 도와드립니다.
+                    </p>
+                </div>
+
+                <!-- Card 4 -->
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100 group hover:-translate-y-2 transition-transform duration-300 cursor-pointer">
+                    <div
+                        class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-secondary mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="users" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Foreign Recruitment</h3>
+                    <p class="text-gray-500 leading-relaxed">
+                        대학을 위한 우수한 외국인 유학생 모집 및 홍보 전략을 수립해 드립니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="py-20 bg-primary relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-900/50 to-primary"></div>
+        <div class="relative z-10 max-w-4xl mx-auto text-center px-4">
+            <h2 class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight">
+                당신의 한국 유학 성공 스토리,<br>
+                KF24와 함께 시작하세요.
+            </h2>
+            <a href="#"
+                class="inline-block bg-secondary text-white px-10 py-5 rounded-2xl font-bold text-xl shadow-2xl shadow-blue-500/50 hover:bg-blue-600 transition-all hover:scale-105">
+                지금 무료 상담 신청하기 <i data-lucide="arrow-right" class="inline-block w-6 h-6 ml-2"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-100 py-12">
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white font-bold">K</div>
+                <span class="font-bold text-xl text-primary">KF24</span>
+            </div>
+            <div class="text-gray-400 text-sm">
+                © 2026 KF24. All rights reserved. Premium Educational Authority.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
