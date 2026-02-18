@@ -290,20 +290,263 @@
             display: block;
         }
 
-        /* Mobile Hero Styles */
+        /* Updated Mobile Hero Styles (High-Fidelity) */
+        :root {
+            --hover-color: #ffffff;
+        }
+
         .mobile-hero {
-            display: none;
-            position: absolute;
+            display: none !important;
+            /* Default hidden */
+            position: relative;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at center, #1a202c 0%, #0c0f14 100%);
+            height: 100vh;
+            /* Full viewport height */
+            background: radial-gradient(ellipse at 30% 50%, #1a1530 0%, #0c0f14 60%),
+                radial-gradient(ellipse at 70% 50%, #0f1a1a 0%, transparent 60%);
             z-index: 5;
             justify-content: center;
             align-items: center;
             text-align: center;
             padding: 20px;
+            overflow: hidden;
+        }
+
+        /* Background Orbs */
+        .hero-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
+        }
+
+        .hero-orb-1 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(197, 160, 89, 0.12) 0%, transparent 70%);
+            top: -50px;
+            left: -50px;
+            animation: orbFloat1 8s ease-in-out infinite;
+        }
+
+        .hero-orb-2 {
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(100, 160, 200, 0.08) 0%, transparent 70%);
+            bottom: -50px;
+            right: -20px;
+            animation: orbFloat2 10s ease-in-out infinite;
+        }
+
+        @keyframes orbFloat1 {
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(20px, 15px);
+            }
+        }
+
+        @keyframes orbFloat2 {
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(-15px, -20px);
+            }
+        }
+
+        /* Particles */
+        .hero-particles {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--gold-color);
+            border-radius: 50%;
+            opacity: 0;
+            animation: particleFloat linear infinite;
+        }
+
+        @keyframes particleFloat {
+            0% {
+                opacity: 0;
+                transform: translateY(0) translateX(0);
+            }
+
+            10% {
+                opacity: 0.6;
+            }
+
+            90% {
+                opacity: 0.3;
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(-120px) translateX(var(--drift));
+            }
+        }
+
+        /* Lines */
+        .hero-line {
+            position: absolute;
+            background: linear-gradient(90deg, transparent, rgba(197, 160, 89, 0.3), transparent);
+            height: 1px;
+            width: 200px;
+            pointer-events: none;
+        }
+
+        .hero-line-1 {
+            top: 20%;
+            left: -20px;
+            animation: lineFade 4s ease-in-out infinite;
+        }
+
+        @keyframes lineFade {
+
+            0%,
+            100% {
+                opacity: 0.2;
+                width: 150px;
+            }
+
+            50% {
+                opacity: 0.6;
+                width: 250px;
+            }
+        }
+
+        /* Typography & Content */
+        .mobile-hero-content {
+            position: relative;
+            z-index: 5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .mobile-hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            line-height: 1.2;
+            color: var(--glow-white);
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+            margin-bottom: 15px;
+            animation: slideUp 1s ease-out forwards;
+            opacity: 0;
+        }
+
+        .mobile-hero-content h1 .gold-text {
+            background: linear-gradient(90deg, #c5a059, #f0d080, #c5a059, #d4b06a);
+            background-size: 300% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: goldShimmer 4s linear infinite;
+            display: inline-block;
+        }
+
+        @keyframes goldShimmer {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            100% {
+                background-position: 300% 50%;
+            }
+        }
+
+        .mobile-hero-content p {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+            animation: flowRight 1.2s ease-out 0.5s forwards;
+            opacity: 0;
+        }
+
+        /* Mobile Buttons (3-pack) */
+        .mobile-cta {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 100%;
+            max-width: 280px;
+            opacity: 0;
+            animation: slideUp 1s ease-out 0.8s forwards;
+        }
+
+        .hero-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 20px;
+            border: 1px solid rgba(197, 160, 89, 0.4);
+            border-radius: 30px;
+            background: rgba(197, 160, 89, 0.06);
+            color: var(--gold-color);
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-btn:hover {
+            border-color: var(--gold-color);
+            background: rgba(197, 160, 89, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .hero-btn.primary {
+            background: linear-gradient(135deg, var(--gold-color), var(--gold-light));
+            color: var(--bg-color);
+            border-color: transparent;
+            box-shadow: 0 5px 15px rgba(197, 160, 89, 0.4);
+        }
+
+        .hero-btn.primary:hover {
+            box-shadow: 0 8px 20px rgba(197, 160, 89, 0.6);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes flowRight {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
         /* Mobile Hero Animations */
@@ -944,14 +1187,30 @@
         </div>
 
         <div class="mobile-hero">
+            <!-- Background Graphics -->
+            <div class="hero-orb hero-orb-1"></div>
+            <div class="hero-orb hero-orb-2"></div>
+            <div class="hero-particles" id="heroParticles"></div>
+            <div class="hero-line hero-line-1"></div>
+
             <div class="mobile-hero-content">
-                <!-- Title: Slide Up Animation applied via CSS -->
-                <h1>SEORAE BEAUTY</h1>
-                <!-- Subtitle: Changed text & Flow Right Animation applied via CSS -->
+                <!-- Title with Shimmer -->
+                <h1>SEORAE<br><span class="gold-text">BEAUTY</span></h1>
+
+                <!-- Subtitle -->
                 <p>프리미엄 시니어 혁신 평생교육</p>
-                <div class="mobile-cta fade-in-up delay-2">
-                    <!-- Button: Changed text -->
-                    <a href="#contact" class="gold-btn">교육 상담</a>
+
+                <!-- 3 Buttons Layout -->
+                <div class="mobile-cta">
+                    <a href="https://www.instagram.com/s.rae7400" target="_blank" class="hero-btn">
+                        <span>📸</span> Instagram
+                    </a>
+                    <a href="https://blog.naver.com/youngme777" target="_blank" class="hero-btn">
+                        <span>📝</span> 네이버 블로그
+                    </a>
+                    <a href="#contact" class="hero-btn primary">
+                        <span>✉️</span> 교육 상담
+                    </a>
                 </div>
             </div>
         </div>
@@ -1428,6 +1687,34 @@
         } else {
             if (canvas) canvas.remove();
         }
+    </script>
+    <script>
+        // =====================================================
+        // Mobile Hero Particles (Lightweight CSS Animation)
+        // =====================================================
+        (function createParticles() {
+            const container = document.getElementById('heroParticles');
+            if (!container) return;
+            const count = 20; // Reduced count for mobile performance
+            for (let i = 0; i < count; i++) {
+                const p = document.createElement('div');
+                p.className = 'particle';
+                const left = Math.random() * 100;
+                const top = 20 + Math.random() * 70;
+                const dur = 4 + Math.random() * 6;
+                const delay = Math.random() * 6;
+                const drift = (Math.random() - 0.5) * 60 + 'px';
+                const size = 1 + Math.random() * 2;
+                p.style.cssText = `
+                    left:${left}%; top:${top}%;
+                    width:${size}px; height:${size}px;
+                    animation-duration:${dur}s;
+                    animation-delay:${delay}s;
+                    --drift:${drift};
+                `;
+                container.appendChild(p);
+            }
+        })();
     </script>
 </body>
 
