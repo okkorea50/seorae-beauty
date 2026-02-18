@@ -306,19 +306,55 @@
             padding: 20px;
         }
 
+        /* Mobile Hero Animations */
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes flowRight {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
         .mobile-hero-content h1 {
             font-family: 'Playfair Display', serif;
             font-size: 3rem;
             color: var(--gold-color);
-            margin-bottom: 15px;
+            margin-bottom: 25px;
+            /* Spacing increased */
             text-shadow: 0 0 20px rgba(197, 160, 89, 0.3);
+            /* Animation: Slide Up */
+            animation: slideUp 1s ease-out forwards;
+            opacity: 0;
+            /* Initial state hidden */
         }
 
         .mobile-hero-content p {
             font-size: 1.1rem;
             color: var(--text-muted);
-            margin-bottom: 30px;
+            margin-bottom: 40px;
+            /* Spacing increased */
             letter-spacing: 1px;
+            /* Animation: Flow Right */
+            animation: flowRight 1.2s ease-out 0.5s forwards;
+            /* 0.5s delay */
+            opacity: 0;
+            /* Initial state hidden */
         }
 
         .gold-btn {
@@ -866,6 +902,17 @@
             .pc-br {
                 display: none;
             }
+
+            /* Mobile Hero Visibility */
+            .mobile-hero {
+                display: flex !important;
+                /* Force flex display on mobile */
+            }
+
+            .spline-container {
+                display: none;
+                /* Hide 3D container on mobile to save resources */
+            }
         }
     </style>
 </head>
@@ -898,10 +945,13 @@
 
         <div class="mobile-hero">
             <div class="mobile-hero-content">
-                <h1 class="fade-in-up">SEORAE BEAUTY</h1>
-                <p class="fade-in-up delay-1">Premium Total Beauty Solution</p>
+                <!-- Title: Slide Up Animation applied via CSS -->
+                <h1>SEORAE BEAUTY</h1>
+                <!-- Subtitle: Changed text & Flow Right Animation applied via CSS -->
+                <p>프리미엄 시니어 혁신 평생교육</p>
                 <div class="mobile-cta fade-in-up delay-2">
-                    <a href="#contact" class="gold-btn">상담 예약하기</a>
+                    <!-- Button: Changed text -->
+                    <a href="#contact" class="gold-btn">교육 상담</a>
                 </div>
             </div>
         </div>
