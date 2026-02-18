@@ -249,6 +249,7 @@
             position: relative;
             height: 100vh;
             width: 100%;
+            background-color: #0c0f14;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -1343,6 +1344,19 @@
 
             // 💡 여기서 로컬 경로 대신 제공해주신 Spline 서버 경로를 사용합니다!
             app.load('https://prod.spline.design/gtg5bodbBqThkVGx/scene.splinecode').then(() => {
+
+                // 3D 렌더링 최적화: 화면에 보일 때만 렌더링 (GPU 절약)
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            app.play(); // 화면에 보이면 재생
+                        } else {
+                            app.stop(); // 화면에서 사라지면 정지 (리소스 절약)
+                        }
+                    });
+                }, { threshold: 0.1 });
+                observer.observe(document.querySelector('.hero'));
+
                 app.addEventListener('mouseDown', (e) => {
                     const name = e.target.name;
                     if (name.includes('button 1') || name.includes('편안한')) {
