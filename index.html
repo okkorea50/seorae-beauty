@@ -295,6 +295,11 @@
             --hover-color: #ffffff;
         }
 
+        /* Updated Mobile Hero Styles (High-Fidelity) */
+        :root {
+            --hover-color: #ffffff;
+        }
+
         .mobile-hero {
             display: none !important;
             /* Default hidden */
@@ -311,6 +316,8 @@
             align-items: center;
             text-align: center;
             padding: 20px;
+            padding-top: 15vh;
+            /* Shift content down for balance */
             overflow: hidden;
         }
 
@@ -443,9 +450,10 @@
             font-family: 'Playfair Display', serif;
             font-size: 2.8rem;
             line-height: 1.2;
-            color: var(--glow-white);
+            color: #ffffff;
+            /* Pure White */
             text-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             animation: slideUp 1s ease-out forwards;
             opacity: 0;
         }
@@ -479,13 +487,13 @@
             opacity: 0;
         }
 
-        /* Mobile Buttons (3-pack) */
+        /* Mobile Buttons (Grid Layout) */
         .mobile-cta {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
             width: 100%;
-            max-width: 280px;
+            max-width: 320px;
             opacity: 0;
             animation: slideUp 1s ease-out 0.8s forwards;
         }
@@ -494,18 +502,29 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            padding: 12px 20px;
+            gap: 6px;
+            padding: 10px 14px;
+            /* Reduced size */
             border: 1px solid rgba(197, 160, 89, 0.4);
             border-radius: 30px;
             background: rgba(197, 160, 89, 0.06);
             color: var(--gold-color);
-            font-size: 0.95rem;
-            font-weight: 600;
+            font-size: 0.85rem;
+            /* Reduced font size */
+            font-weight: 500;
             text-decoration: none;
             transition: all 0.3s;
             position: relative;
             overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .hero-btn.full-width {
+            grid-column: span 2;
+            margin-top: 5px;
+            padding: 12px 20px;
+            font-size: 0.95rem;
+            font-weight: 600;
         }
 
         .hero-btn:hover {
@@ -547,57 +566,6 @@
                 opacity: 1;
                 transform: translateX(0);
             }
-        }
-
-        /* Mobile Hero Animations */
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes flowRight {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .mobile-hero-content h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            color: var(--gold-color);
-            margin-bottom: 25px;
-            /* Spacing increased */
-            text-shadow: 0 0 20px rgba(197, 160, 89, 0.3);
-            /* Animation: Slide Up */
-            animation: slideUp 1s ease-out forwards;
-            opacity: 0;
-            /* Initial state hidden */
-        }
-
-        .mobile-hero-content p {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            margin-bottom: 40px;
-            /* Spacing increased */
-            letter-spacing: 1px;
-            /* Animation: Flow Right */
-            animation: flowRight 1.2s ease-out 0.5s forwards;
-            /* 0.5s delay */
-            opacity: 0;
-            /* Initial state hidden */
         }
 
         .gold-btn {
@@ -1200,7 +1168,7 @@
                 <!-- Subtitle -->
                 <p>프리미엄 시니어 혁신 평생교육</p>
 
-                <!-- 3 Buttons Layout -->
+                <!-- 3 Buttons Layout (Grid) -->
                 <div class="mobile-cta">
                     <a href="https://www.instagram.com/s.rae7400" target="_blank" class="hero-btn">
                         <span>📸</span> Instagram
@@ -1208,7 +1176,7 @@
                     <a href="https://blog.naver.com/youngme777" target="_blank" class="hero-btn">
                         <span>📝</span> 네이버 블로그
                     </a>
-                    <a href="#contact" class="hero-btn primary">
+                    <a href="#contact" class="hero-btn primary full-width">
                         <span>✉️</span> 교육 상담
                     </a>
                 </div>
