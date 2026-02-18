@@ -866,15 +866,6 @@
             .pc-br {
                 display: none;
             }
-
-            /* 모바일에서도 3D 캔버스 표시 강제, 기존 모바일 히어로 숨김 */
-            .mobile-hero {
-                display: none !important;
-            }
-
-            .spline-container {
-                display: block !important;
-            }
         }
     </style>
 </head>
@@ -1348,41 +1339,45 @@
 
         const canvas = document.getElementById('canvas3d');
 
-        const app = new Application(canvas);
+        if (window.innerWidth > 1280) {
+            const app = new Application(canvas);
 
-        // 💡 여기서 로컬 경로 대신 제공해주신 Spline 서버 경로를 사용합니다!
-        app.load('https://prod.spline.design/gtg5bodbBqThkVGx/scene.splinecode').then(() => {
+            // 💡 여기서 로컬 경로 대신 제공해주신 Spline 서버 경로를 사용합니다!
+            app.load('https://prod.spline.design/gtg5bodbBqThkVGx/scene.splinecode').then(() => {
 
-            // 3D 렌더링 최적화: 화면에 보일 때만 렌더링 (GPU 절약)
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        app.play(); // 화면에 보이면 재생
-                    } else {
-                        app.stop(); // 화면에서 사라지면 정지 (리소스 절약)
+                // 3D 렌더링 최적화: 화면에 보일 때만 렌더링 (GPU 절약)
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            app.play(); // 화면에 보이면 재생
+                        } else {
+                            app.stop(); // 화면에서 사라지면 정지 (리소스 절약)
+                        }
+                    });
+                }, { threshold: 0.1 });
+                observer.observe(document.querySelector('.hero'));
+
+                app.addEventListener('mouseDown', (e) => {
+                    const name = e.target.name;
+                    if (name.includes('button 1') || name.includes('편안한')) {
+                        playTone('bright');
+                        setTimeout(() => { window.open('https://www.instagram.com/s.rae7400', '_blank'); }, 3500);
+                    }
+                    else if (name.includes('button 2') || name.includes('24시간')) {
+                        playTone('water1');
+                        setTimeout(() => { window.open('https://blog.naver.com/youngme777', '_blank'); }, 3500);
+                    }
+                    else if (name.includes('button 3') || name.includes('전문')) {
+                        playTone('water2');
+                        setTimeout(() => { document.getElementById('contact').scrollIntoView({ behavior: 'smooth' }); }, 3000);
                     }
                 });
-            }, { threshold: 0.1 });
-            observer.observe(document.querySelector('.hero'));
-
-            app.addEventListener('mouseDown', (e) => {
-                const name = e.target.name;
-                if (name.includes('button 1') || name.includes('편안한')) {
-                    playTone('bright');
-                    setTimeout(() => { window.open('https://www.instagram.com/s.rae7400', '_blank'); }, 3500);
-                }
-                else if (name.includes('button 2') || name.includes('24시간')) {
-                    playTone('water1');
-                    setTimeout(() => { window.open('https://blog.naver.com/youngme777', '_blank'); }, 3500);
-                }
-                else if (name.includes('button 3') || name.includes('전문')) {
-                    playTone('water2');
-                    setTimeout(() => { document.getElementById('contact').scrollIntoView({ behavior: 'smooth' }); }, 3000);
-                }
+            }).catch(error => {
+                console.error("Spline 로드 오류!", error);
             });
-        }).catch(error => {
-            console.error("Spline 로드 오류!", error);
-        });
+        } else {
+            if (canvas) canvas.remove();
+        }
     </script>
 </body>
 
