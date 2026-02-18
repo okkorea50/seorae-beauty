@@ -42,11 +42,15 @@
             line-height: 1.6;
             background-color: var(--bg-color);
             overflow-x: hidden;
+            width: 100%;
+            position: relative;
             -webkit-overflow-scrolling: touch;
         }
 
         html {
             scroll-behavior: smooth;
+            width: 100%;
+            overflow-x: hidden;
         }
 
         a {
@@ -493,12 +497,16 @@
             display: flex;
             flex-direction: row;
             justify-content: center;
-            gap: 8px;
+            align-items: center;
+            gap: 5px;
+            /* Reduced gap */
             width: 100%;
-            max-width: 360px;
-            /* fit 3 buttons */
+            max-width: 100%;
+            /* Allow full width */
             opacity: 0;
             animation: slideUp 1s ease-out 0.8s forwards;
+            flex-wrap: nowrap;
+            /* Force single line */
         }
 
         .hero-btn {
@@ -506,23 +514,25 @@
             align-items: center;
             justify-content: center;
             gap: 4px;
-            padding: 8px 10px;
-            /* Reduced margin/padding */
+            padding: 8px 6px;
+            /* Tighter padding */
             border: 1px solid rgba(197, 160, 89, 0.4);
-            border-radius: 20px;
-            /* Slightly tighter radius */
+            border-radius: 15px;
+            /* Tighter radius */
             background: rgba(197, 160, 89, 0.06);
             color: var(--gold-color);
-            font-size: 0.8rem;
-            /* Smaller font */
+            font-size: 0.75rem;
+            /* 12px for safety */
             font-weight: 500;
             text-decoration: none;
             transition: all 0.3s;
             position: relative;
             overflow: hidden;
             white-space: nowrap;
-            flex: 1;
-            /* Distribute space evenly */
+            flex: 1 1 auto;
+            /* Flexible width */
+            min-width: 0;
+            /* Allow shrinking below content size */
         }
 
         .hero-btn.full-width {
